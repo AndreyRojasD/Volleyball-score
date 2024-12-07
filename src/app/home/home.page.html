@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<ion-app>
+  <ion-content>
+    <div class="container">
+      <div class="left">
+        <div class="team-name">{{red_team_name}}</div>
+        <button class="invisible-button top" (click)="up_red_points()"></button>
+        <div class="content">
+          <span class="number">{{ this.red }}</span>
+          <span class="sets" (click)="red_sets()" style="pointer-events: auto;">sets: {{ red_sets_number }}</span>
+        </div>
+        <button class="invisible-button bottom" (click)="down_red_points()"></button>
+      </div>
+      <div class="right">
+        <div class="team-name">{{blue_team_name}}</div>
+        <button class="invisible-button top" (click)="up_blue_points()"></button>
+        <div class="content">
+          <span class="number">{{ this.blue }}</span>
+          <span class="sets" (click)="blue_sets()" style="pointer-events: auto;">sets: {{ blue_sets_number }}</span>
+        </div>
+        <button class="invisible-button bottom" (click)="down_blue_points()"></button>
+      </div>
+      <div class="center-buttons">
+        <ion-button fill shape="round" class="middle-button red-button" (click)="exchange()">
+          <ion-icon name="swap-horizontal-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill shape="round" class="middle-button blue-button" (click)="finish_set()">
+          <ion-icon name="radio-button-on-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill shape="round" class="middle-button blue-button" (click)="finish_game()">
+          <ion-icon name="ban-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </ion-content>
+</ion-app>
